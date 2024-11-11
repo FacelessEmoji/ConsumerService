@@ -8,14 +8,16 @@ import java.time.LocalDateTime;
 public class OrderDTO extends TimestampedDTO {
     private String description;
     private StatusType status;
+    private String requiredParts;
     private LocalDateTime estimatedCompletionTime;
     private String client;
     private String master;
 
-    public OrderDTO(String description, StatusType status, LocalDateTime estimatedCompletionTime, String client, String master) {
+    public OrderDTO(String description, StatusType status, LocalDateTime estimatedCompletionTime, String requiredParts, String client, String master) {
         this.description = description;
         this.status = status;
         this.estimatedCompletionTime = estimatedCompletionTime;
+        this.requiredParts = requiredParts;
         this.client = client;
         this.master = master;
     }

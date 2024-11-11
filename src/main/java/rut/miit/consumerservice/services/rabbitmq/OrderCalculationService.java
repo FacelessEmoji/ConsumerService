@@ -1,4 +1,4 @@
-package rut.miit.consumerservice.services;
+package rut.miit.consumerservice.services.rabbitmq;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,6 @@ public class OrderCalculationService {
     private OrderRepository orderRepository;
 
     public void calculateAndUpdateEstimatedTime(String orderId) {
-        // Получаем заказ по ID
         Order order = orderRepository.findById(orderId).orElse(null);
         if (order == null) {
             System.out.println("Order not found with ID: " + orderId);
@@ -24,7 +23,6 @@ public class OrderCalculationService {
         // Допустим, что стандартное время выполнения — 2 дня
         LocalDateTime estimatedCompletionTime = LocalDateTime.now().plusDays(2);
 
-        // Обновляем время выполнения в заказе
         order.setEstimatedCompletionTime(estimatedCompletionTime);
         orderRepository.save(order);
 

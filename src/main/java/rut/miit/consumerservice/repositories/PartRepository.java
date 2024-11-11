@@ -6,5 +6,5 @@ import rut.miit.consumerservice.models.entities.Part;
 
 @Repository
 public interface PartRepository extends JpaRepository<Part, String> {
-
+    Part findByName(String name);
 }
